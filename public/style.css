@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+body {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Noto Serif', serif;
+    max-width: 1200px;
+    background-color: #eee4d5;
+}
+
+p, h1, h2, h3, a, ul {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #222;
+}
+
+/* nav & footer styles */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+nav li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+nav h1 {
+    font-size: 3em;
+}
+
+nav p, nav a {
+    color: #777;
+    font-weight: 300;
+}
+
+footer {
+    color: #777;
+    text-align: center;
+    margin: 80px auto 20px;
+}
+
+h2 {
+    margin-bottom: 40px;
+}
+
+h3 {
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+.content {
+    margin-left: 20px;
+}
+
+/* employees styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+  
+  th {
+    background-color: #ee7b45;
+    color: white;
+  }
+/* details styles */
+.details{
+    position:relative;
+    display: block;
+    margin: 40px 0 ;
+    padding-left: 30px;
+    border-left: 1rem solid crimson;
+}
+.delete{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    padding: 8px;
+}
+.delete:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+
+
+/* create styles */
+
+.create-employee form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.create-employee input, .create-employee textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: rgba(235, 139, 30, 0.2);
+}
+
+.create-employee label {
+    display: block;
+    margin-top: 24px;
+}
+
+textarea {
+    height: 120px;
+}
+
+.create-employee button {
+    margin-top: 20px;
+    background: rgb(219, 38, 14);
+    color: white;
+    padding: 6px;
+    border: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+} 

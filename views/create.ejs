@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/nav.ejs') %> 
+    <div class="content create-employee">
+        <form action="/employee" method="post">
+            <label for="name">Name: </label>
+            <input class="name" name="name" type="text" placeholder="Employee Name" required>
+            <label for="contact">Mobile No.: </label>
+            <input class="contact" name="contact" type="text" placeholder="Mobile No." required>
+            <label for="city">City: </label>
+            <input type="text" name="city" class="city" placeholder="City Name" required>
+            <label for="address">Address: </label>
+            <textarea name="address" class="address" ></textarea>
+            <label for="email">Email: </label>
+            <input type="email" name="email" class="email" placeholder="abc@xyz.com">
+            <button>Submit</button>
+        </form>
+    </div>
+    <%- include('./partials/footer.ejs') %> 
+
+    
+    
+</body>
+</html>

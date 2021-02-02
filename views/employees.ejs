@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<body>
+    <%- include('./partials/nav.ejs') %> 
+    <div class="content employees">
+        <table>
+            <thead>
+                <th>EmpID</th>
+                <th>Name</th>
+                <th>Details</th>
+            </thead>
+            <% if(employees.length>0){ %> 
+                <% employees.forEach(employee => { %>
+                <tr>
+                    <td><%= employee.employeeID %> </td>
+                    <td><%= employee.name %> </td>
+                    <td><a href="/employee/<%= employee._id  %> "> <i class="fas fa-arrow-right"></i> </a></td>
+                </tr>
+                <% }) %>
+            <% }else{ %>
+                <td>No Employee to Display</td>
+            <% } %>   
+        </table>
+    </div>
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>    
