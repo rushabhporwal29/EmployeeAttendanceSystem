@@ -31,7 +31,23 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get('/',(req,res)=>{
-    res.redirect('/employee/employees');
+    res.render('auth',{auth:{signUp:"hidden"}});
+});
+
+app.get('/:id',(req,res)=>{
+    let auth={
+        login:"hidden",
+        signUp:"hidden"
+    }
+    auth[req.params.id]="";
+    res.render('auth',{auth:auth});
+});
+app.post('/login',(req,res)=>{
+
+})
+
+app.post('/signUp',(req,res)=>{
+    res.render('auth',{auth:{signUp:"hidden"}}); 
 })
 
 app.use('/employee',employeeRoutes);

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM | Home</title>
+</head>
+<body>
+    <div class="content">
+        <a href="/login">Log In</a>
+        <a href="/signUp">Sign Up</a>
+        <form action="/login" method="POST" <%= auth.login %> class="logIn" >
+            <label for="username">Username: </label>
+            <input type="text" name="username" required id="username" placeholder="Enter Username">
+            <label for="password">Password: </label>
+            <input type="password" name="password" required id="password" placeholder="Enter Password">
+            <button>Login</button>
+        </form>
+        <form action="/signUp" method="POST" <%= auth.signUp %> class="signUp" >
+            <label for="name">name: </label>
+            <input type="text" name="name" required id="name" placeholder="Enter Name">
+            <label for="contact">Mobile: </label>
+            <input type="text" name="contact" id="contact" placeholder="Enter Contact">
+            <label for="username">Username: </label>
+            <input type="text" name="username" required id="username" placeholder="Enter Username">
+            <label for="password">Password: </label>
+            <input type="password" name="password" required id="password" placeholder="Enter Password">
+            <button>SignUp</button>
+        </form>
+
+    </div>
+</body>
+</html>
