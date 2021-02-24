@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %> 
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="content create-employee">
+        <form action="/attendance" method="post">
+            <label for="employeeID">Employee ID: </label>
+            <input type="number" name="employeeID" class="employeeID" placeholder="Enter ID">
+            <label for="name">Employee Name: </label>
+            <select name="name" class="name">
+                <option value="" disabled selected hidden>Select Employee Name</option>
+                <% if (employees.length>0) { %>
+                    <% employees.forEach(employee => { %>
+                        <% if (employee) { %>
+                            <option value="<%= employee.name %>"><%= employee.name %> </option>
+                        <% } %> 
+                    <% }); %>  
+                <% } %> 
+            </select>
+            <button>Submit</button>
+        </form>
+    </div>
+    
+    <%- include('./partials/footer') %> 
+</body>
+</html>

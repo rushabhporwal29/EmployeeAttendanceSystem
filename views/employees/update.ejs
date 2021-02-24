@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/nav.ejs') %> 
+        <div class="content create-employee">
+            <form action="/employee/update/<%= employee._id %> " method="post">
+                <label for="">Employee ID: </label>
+                <input type="text" class="" name="" value="<%= employee.employeeID %> " readonly >
+                <label for="name">Name: </label>
+                <input type="text" class="name" name="name" value="<%= employee.name %> ">
+                <label for="contact">Contacts: </label>
+                <input type="text" class="contact" name="contact" value="<%= employee.contact %> ">
+                <label for="contact">City: </label>
+                <input type="text" class="city" name="city" value="<%= employee.city %> ">
+                <label for="contact">Adress: </label>
+                <input type="text" class="address" name="address" value="<%= employee.address %> ">
+                <label for="contact">Email: </label>
+                <input type="text" class="email" name="email" value="<%= employee.email %> ">
+                <button>Update</button>
+            </form>
+        </div>
+        <%- include('./partials/footer.ejs') %> 
+
+    </body>
+    
+</html>    

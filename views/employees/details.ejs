@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="content details">
+            <p><b>EmployeeID:</b> <%= employee.employeeID %> </p>
+            <p><b>Name:</b> <%= employee.name %> </p>
+            <p><b>Gender:</b> <%= employee.gender %> </p>
+            <p><b>Contacts:</b> <%= employee.contact %> </p>
+            <p><b>City:</b> <%= employee.city %> </p>
+            <p><b>Email:</b> <%= employee.email %> </p>
+            <p><b>Adress:</b> <%= employee.address %> %>  </p>
+            <a class="delete" data-doc="<%= employee._id %> ">
+                <i class="fas fa-trash"></i>
+            </a>
+            <a href="/employee/update/<%= employee._id %> " class="update">
+                <i class="fas fa-edit"></i>
+            </a>
+        </div>
+        <%- include('./partials/footer.ejs') %>
+
+    </body>
+    <script>
+        const trashcan=document.querySelector('a.delete');
+
+        trashcan.addEventListener('click',(e)=>{
+            if (confirm("Are You Sure?")) {
+                const endpoint='/employee/'+trashcan.dataset.doc;
+                fetch(endpoint,{
+                    method: 'DELETE'
+                })
+                    .then((response)=>response.json())
+                    .then((data)=> {window.location.href=data.redirect;})
+                    .catch((err)=>{console.log(err);});
+            } else {
+            }
+        })
+    </script>
+</html>
+
+

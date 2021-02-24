@@ -5,14 +5,20 @@ body {
     padding: 0 20px;
     font-family: 'Noto Serif', serif;
     max-width: 1200px;
-    background-color: #eee4d5;
+    background-color: #242424;
+    color: rgba(255, 255, 255,0.67);
+
+}
+
+hr{
+    border: 1px solid white;
 }
 
 p, h1, h2, h3, a, ul {
     margin: 0;
     padding: 0;
     text-decoration: none;
-    color: #222;
+    color: rgba(255,255,255,0.67);
 }
 
 /* nav & footer styles */
@@ -22,8 +28,9 @@ nav {
     justify-content: space-between;
     margin-bottom: 60px;
     padding-bottom: 10px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     text-transform: uppercase;
+    min-width: 100%;
 }
 
 nav ul {
@@ -42,12 +49,12 @@ nav h1 {
 }
 
 nav p, nav a {
-    color: #777;
+    color: rgba(255,255,255,0.45);
     font-weight: 300;
 }
 
 footer {
-    color: #777;
+    color: rgba(255,255,255,0.45);
     text-align: center;
     margin: 80px auto 20px;
 }
@@ -75,20 +82,23 @@ table {
     text-align: left;
     padding: 8px;
   }
-  
-  tr:nth-child(even){background-color: #f2f2f2}
+ 
+  tr:nth-child(even){
+      background-color: #ecbbe1;
+      color: rgba(0,0,0,0.67);
+    }
   
   th {
-    background-color: #ee7b45;
-    color: white;
+    background-color: #C651CD;
+    color: rgba(0,0,0,0.67);
   }
 /* details styles */
-.details{
+.details,.updates{
     position:relative;
     display: block;
     margin: 40px 0 ;
     padding-left: 30px;
-    border-left: 1rem solid crimson;
+    border-left: 1rem solid #C651CD;
 }
 .delete{
     position: absolute;
@@ -96,6 +106,18 @@ table {
     right: 0;
     border-radius: 50%;
     padding: 8px;
+}
+.update{
+    position: absolute;
+    top: 0;
+    right: 5%;
+    border-radius: 50%;
+    padding: 8px;
+    background-color: rgba(0,0,0,0);
+}
+.update:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
 }
 .delete:hover{
     cursor: pointer;
@@ -105,17 +127,23 @@ table {
 
 /* create styles */
 
+
+
 .create-employee form {
     max-width: 400px;
     margin: 0 auto;
+    padding: 30px;
+    background-color: #1b1b1b;
+    border-radius: 1.75rem;
 }
 
-.create-employee input, .create-employee textarea {
+.create-employee input, .create-employee textarea , .create-employee select {
     display: block;
     width: 100%;
     margin: 10px 0;
     padding: 8px;
-    background-color: rgba(235, 139, 30, 0.2);
+    background-color: rgba(236, 187, 225, 0.8);
+    border-radius: 0.45rem;
 }
 
 .create-employee label {
@@ -127,12 +155,49 @@ textarea {
     height: 120px;
 }
 
+
+.gender input{
+    display: inline;
+    width: 10%;
+}
+
+.gender label{
+    display: inline;
+}
+
+
 .create-employee button {
     margin-top: 20px;
-    background: rgb(219, 38, 14);
+    background: #8739F9;
     color: white;
     padding: 6px;
     border: 0;
     font-size: 1.2em;
     cursor: pointer;
+    border-radius: 10px;
+} 
+
+/* Details Employee */
+.search-employee form {
+    padding: 0.65rem;
+    background-color: #1b1b1b;
+    border-radius: 0.65rem;
+}
+
+.search-employee input, .search-employee textarea , .search-employee select {
+    margin: 10px 20px;
+    padding: 5px;
+    background-color: rgba(236, 187, 225, 0.8);
+    border-radius: 0.45rem;
+}
+
+.search-employee button {
+    margin-top: 20px;
+    background: #8739F9;
+    color: white;
+    padding: 6px;
+    border: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
 } 

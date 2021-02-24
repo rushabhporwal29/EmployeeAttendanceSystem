@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %> 
+<body>
+    <%- include('./partials/nav') %>
+   
+    <div class="content">
+        <div class="search-employee">
+            <form action="/attendance/details" method="post">
+                <label for="employeeID">Employee ID: </label>
+                <input type="number" name="employeeID" class="employeeID" placeholder="Enter ID">
+                <label for="name">Employee Name: </label>
+                <select name="name" class="name">
+                    <option value="" selected hidden>Select Employee Name</option>
+                    <% if (attendances.length>0) { %>
+                        <% attendances.forEach(employee => { %>
+                            <% if (employee) { %>
+                                <option value="<%= employee.name %>"><%= employee.name %> </option>
+                            <% } %> 
+                        <% }); %>  
+                    <% } %> 
+                </select>
+                <label for="date">Date: </label>
+                <input type="date" name="date" id="date"  placeholder="Enter Date">
+                <button>Submit</button>
+            </form>
+        </div>
+
+        <table>
+            <thead>
+                <th>Date</th>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>Work Hrs</th>
+                <th>IN</th>
+                <th>OUT</th>
+            </thead>
+            <% attendances.forEach(attendance => { %>
+                <% let len=attendance.attendance.length %>
+                <% len=len%2===0?(len/2):((len+1)/2) %>
+                <tr style="border-top: 2px solid  white;">
+                    <td rowspan="<%= len %> "><%= attendance.day %></td>
+                    <td rowspan="<%= len %> "><%= attendance.employeeID %></td>
+                    <td rowspan="<%= len %> "><%= attendance.name %></td>
+                    <td rowspan="<%= len %> "><%= attendance.workHours %></td>
+                    <td><%= attendance.attendance[0].punchTime %> </td>
+                    <% if (attendance.attendance[1]) { %>
+                        <td><%= attendance.attendance[1].punchTime %> </td>
+                    <% } %>
+                </tr>
+                <% for (let i = 2; i<attendance.attendance.length ; i++) { %>
+                        <tr>
+                            <td><%= attendance.attendance[i++].punchTime %> </td>
+                            <% if (attendance.attendance[i]) { %>
+                                <td><%= attendance.attendance[i].punchTime %> </td>
+                            <% } %>
+                        </tr>
+                         
+                        
+                      <% } %>   
+            <% }); %> 
+            <tr style="background-color: rgba(0,0,0,0);border-top: 2px solid  white;">
+                <td></td><td></td><td></td>
+                <td style="background-color: #C651CD;"><%= workHours?workHours:'.' %> </td>
+            </tr>
+        </table>
+        <hr>
+    </div>
+    
+    <%- include('./partials/footer') %> 
+</body>
+</html>
