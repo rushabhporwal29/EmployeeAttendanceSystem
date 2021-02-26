@@ -2,6 +2,8 @@ const express=require('express');
 const router=express.Router();
 const Employees=require('../controllers/employeeController');
 
+router.get('/',Employees.employees);
+
 router.post('/',Employees.employee_create_post);
 
 router.get('/create',Employees.employee_create_get);
@@ -19,7 +21,7 @@ router.delete('/:id',Employees.employee_delete);
 // Page Not Found
 router.use((req,res)=>{
     console.log('Page Not Found');
-    res.render('employee/404',{title:'404'});
+    res.render('employees/404',{title:'404'});
 });
 
 module.exports=router;

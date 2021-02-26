@@ -9,6 +9,15 @@ router.get('/',(req,res)=>{
     res.redirect('create')
 });
 
+router.get('/mark',(req,res)=>{
+    EmployeeData.find().then((result)=>{
+        // console.log(result);
+        res.render('./create',{title:'Create', employees: result});
+    });
+});
+
+router.post('/mark/',Attendance.attendance_mark_post);
+
 router.get('/create',Attendance.attendance_create_get);
 
 router.post('/',Attendance.attendance_create_post);

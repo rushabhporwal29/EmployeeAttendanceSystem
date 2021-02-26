@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head') %> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EM | <%= title %> </title>
+        <link rel="stylesheet" href="/style.css">
+        <!-- Awesome Fonts Link to StyleSheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        
+    </head>
 <body>
-    <%- include('./partials/nav') %>
-
     <div class="content create-employee">
-        <form action="/attendance" method="post">
+        <form action="/attendance/mark" method="post">
             <label for="employeeID">Employee ID: </label>
             <input type="number" name="employeeID" class="employeeID" placeholder="Enter ID">
             <label for="name">Employee Name: </label>
             <select name="name" class="name">
-                <option value="" disabled selected>Select Employee Name</option>
+                <option value="" disabled selected hidden>Select Employee Name</option>
                 <% if (employees.length>0) { %>
                     <% employees.forEach(employee => { %>
                         <% if (employee) { %>
@@ -19,15 +25,11 @@
                     <% }); %>  
                 <% } %> 
             </select>
-            <label for="day">Date: </label>
-            <input type="date" name="day" class="day" placeholder="Enter Date">
-            <label for="time">Date: </label>
-            <input type="time" name="time" class="time" placeholder="Enter Date">
             <button>Submit</button>
-            <a href="/attendance/mark" >Attendance</a>
         </form>
     </div>
-    
-    <%- include('./partials/footer') %> 
+    <footer>
+        Copyright &copy; Rushabh Porwal 2021
+    </footer>
 </body>
 </html>

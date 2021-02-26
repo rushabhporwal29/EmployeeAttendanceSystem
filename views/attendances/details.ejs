@@ -49,7 +49,7 @@
                     <% } %>
                 </tr>
                 <% for (let i = 2; i<attendance.attendance.length ; i++) { %>
-                        <tr>
+                        <tr class="alternate-rows">
                             <td><%= attendance.attendance[i++].punchTime %> </td>
                             <% if (attendance.attendance[i]) { %>
                                 <td><%= attendance.attendance[i].punchTime %> </td>

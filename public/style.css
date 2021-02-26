@@ -83,7 +83,7 @@ table {
     padding: 8px;
   }
  
-  tr:nth-child(even){
+  tr.alternate-rows:nth-child(odd){
       background-color: #ecbbe1;
       color: rgba(0,0,0,0.67);
     }
@@ -130,7 +130,7 @@ table {
 
 
 .create-employee form {
-    max-width: 400px;
+    max-width: 25rem;
     margin: 0 auto;
     padding: 30px;
     background-color: #1b1b1b;
@@ -139,7 +139,7 @@ table {
 
 .create-employee input, .create-employee textarea , .create-employee select {
     display: block;
-    width: 100%;
+    width: 90%;
     margin: 10px 0;
     padding: 8px;
     background-color: rgba(236, 187, 225, 0.8);

@@ -11,14 +11,14 @@
         <a href="/signUp">Sign Up</a>
         <form action="/login" method="POST" <%= auth.login %> class="logIn" >
             <label for="username">Username: </label>
-            <input type="text" name="username" required id="username" placeholder="Enter Username">
+            <input type="text" name="username" required id="username" placeholder="Enter Username" value="rushabhporwal29">
             <label for="password">Password: </label>
-            <input type="password" name="password" required id="password" placeholder="Enter Password">
+            <input type="password" name="password" required id="password" placeholder="Enter Password" value="123456">
             <button>Login</button>
         </form>
         <form action="/signUp" method="POST" <%= auth.signUp %> class="signUp" >
             <label for="name">name: </label>
-            <input type="text" name="name" required id="name" placeholder="Enter Name">
+            <input type="text" name="name" required id="name" placeholder="Enter Name" >
             <label for="contact">Mobile: </label>
             <input type="text" name="contact" id="contact" placeholder="Enter Contact">
             <label for="username">Username: </label>
@@ -27,6 +27,7 @@
             <input type="password" name="password" required id="password" placeholder="Enter Password">
             <button>SignUp</button>
         </form>
+        <a href="/attendance/mark">Attendance</a>
 
     </div>
 </body>

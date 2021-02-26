@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 const employeeRoutes=require('./routes/employeeRoutes');
 const attendanceRoutes=require('./routes/attendanceRoutes');
 const morgan= require('morgan');
+const User=require('./models/User');
 
 // Express app
 const app=express();
@@ -34,6 +35,10 @@ app.get('/',(req,res)=>{
     res.render('auth',{auth:{signUp:"hidden"}});
 });
 
+app.use('/employee',employeeRoutes);
+
+app.use('/attendance',attendanceRoutes);
+
 app.get('/:id',(req,res)=>{
     let auth={
         login:"hidden",
@@ -43,15 +48,25 @@ app.get('/:id',(req,res)=>{
     res.render('auth',{auth:auth});
 });
 app.post('/login',(req,res)=>{
-
-})
+    let data=req.body;
+    User.findOne(data).then((result)=>{
+        console.log(result);
+    })
+    res.redirect('/employee');
+});
 
 app.post('/signUp',(req,res)=>{
+    let data=req.body;
+    data['status']='Inactive';
+    const newUser=new User(data);
+    newUser.save().then((result)=>{
+        console.log(result);
+    })
     res.render('auth',{auth:{signUp:"hidden"}}); 
-})
+});
 
-app.use('/employee',employeeRoutes);
 
-app.use('/attendance',attendanceRoutes)
+
+
 
 

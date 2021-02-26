@@ -3,21 +3,21 @@ const Schema=mongoose.Schema;
 
 const UserSchema=new Schema({
     name:{
-        type:string,
-        required
+        type:String,
+        required: true
     },
     username:{
-        type:string,
+        type:String,
         index:true,
-        required
+        required: true
     },
     password:{
         type: String,
-        required
+        required: true
     },
     contact:{
         type: String,
-        required
+        required: true
     },
     status:{
         type: String, // Active & Inactive
@@ -33,3 +33,7 @@ const UserSchema=new Schema({
         }
     ]
 },{timestamps:true});
+
+const User=mongoose.model('User',UserSchema);
+
+module.exports=User
