@@ -4,7 +4,7 @@ const Extensions=require('./extensions');
 
 
 const attendance_details_get=(req,res)=>{
-    AttendanceData.find().sort({createAt:-1})
+    AttendanceData.find().sort({updatedAt:-1})
     .then((result)=>{
         for (let i = 0; i < result.length; i++) {
             result[i]['workHours']=Extensions.hrsCalculate(result[i].attendance);
@@ -36,32 +36,38 @@ const attendance_details_post=(req,res)=>{
 };
 
 const attendance_mark_post=(req,res)=>{
-    let temp=req.body;
+    let temp=req.body.data;
     let data={};
     let employee={};
+    // console.log(temp)
+    for(i=0;i<temp.length;i++){
+        // Get Time and Date
+        let today= new Date().toJSON().slice(0,10).replace(/-/g,'/');
+        let time= new Date().toTimeString().split(" ")[0];
 
-    // Get Time and Date
-    const today= new Date().toJSON().slice(0,10).replace(/-/g,'/');
-    const time= new Date().toTimeString().split(" ")[0];
+        // Get Requested Data
+        temp[i].employeeID!=""?data[employeeID]=temp[i].employeeID:null;
+        temp[i].name!=""?data['name']=temp[i].name:null;
+        temp[i].day?today=temp[i].day.split('-').join('/'):today;
+        temp[i].time?time=temp[i].time:time;
+        console.log("### Requested Data: ",data);
+        
 
-    // Get Requested Data
-    temp.employeeID?data[employeeID]=temp.employeeID:null;
-    temp.name?data['name']=temp.name:null;
-    console.log("### Requested Data: ",data);
+        // Search Resquested Employee in Employee Data
+        EmployeeData.findOne(data)
+                .then((result)=>{
+                    // console.log(3);
+                    // console.log("### Available Employee Data: ");
+                    employee=result;
+
+                    // Employee Attendance
+                    Extensions.employeeAttendance(employee,time,today);
+                });
+        // console.log(9);
+    };
     
-
-    // Search Resquested Employee in Employee Data
-    EmployeeData.findOne(data)
-            .then((result)=>{
-                // console.log(3);
-                // console.log("### Available Employee Data: ");
-                employee=result;
-
-                // Employee Attendance
-                Extensions.employeeAttendance(employee,time,today);
-            });
-    // console.log(9);
-    res.redirect('/attendance/mark')
+    // res.redirect('/attendance/mark')
+    res.send({redirect:'/attendance/mark'})
 };
 
 const attendance_create_get=(req,res)=>{

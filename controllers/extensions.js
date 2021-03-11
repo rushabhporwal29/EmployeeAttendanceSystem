@@ -58,7 +58,7 @@ const employeeAttendance=(employee,time,today)=>{
     .then((result)=>{
             // console.log(4);
             data=result;
-            console.log("### Available attendance: ",data);
+            // console.log("### Available attendance: ",data);
             
             // Create New Attendence
             if (!result) {
@@ -74,9 +74,9 @@ const employeeAttendance=(employee,time,today)=>{
             // Update Attendance
             else {
                 // console.log(7);
-                console.log("### Updating Data: ",data);
+                // console.log("### Updating Data: ",data);
                 const pushData={ attendance: {punchType: data.attendance.pop().punchType === 'OUT' ? 'IN': 'OUT', punchTime: time}};
-                console.log("### Push Data: ",pushData);
+                // console.log("### Push Data: ",pushData);
                 AttendanceData.updateMany(
                         {employeeID:data.employeeID,day:data.day},
                         { $push: pushData ,

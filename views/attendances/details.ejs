@@ -12,17 +12,21 @@
                 <label for="name">Employee Name: </label>
                 <select name="name" class="name">
                     <option value="" selected hidden>Select Employee Name</option>
+                     
                     <% if (attendances.length>0) { %>
+                        <% let employees=[] %> 
                         <% attendances.forEach(employee => { %>
-                            <% if (employee) { %>
+                            <% if (employees.indexOf(employee.name)===-1) { %>
                                 <option value="<%= employee.name %>"><%= employee.name %> </option>
-                            <% } %> 
+                                <% employees.push(employee.name) %> 
+                            <% } %>
                         <% }); %>  
                     <% } %> 
                 </select>
                 <label for="date">Date: </label>
                 <input type="date" name="date" id="date"  placeholder="Enter Date">
                 <button>Submit</button>
+                <button>Clear</button>
             </form>
         </div>
 

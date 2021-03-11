@@ -1,1 +1,1 @@
-forever start app.js && exit
+pm2 start app.js 

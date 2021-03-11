@@ -6,8 +6,9 @@ const AttendanceData=require('../models/employeeAttendance');
 const EmployeeData=require('../models/employeedata');
 
 router.get('/',(req,res)=>{
-    res.redirect('create')
+    res.redirect('details')
 });
+
 
 router.get('/mark',(req,res)=>{
     EmployeeData.find().then((result)=>{

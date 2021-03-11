@@ -29,7 +29,7 @@ const EmployeeAttendanceSchema=new Schema({
     workHours:{
         type: String
     }
-});
+},{timestamps:true});
 
 const EmployeeAttendance=mongoose.model('employeeAttendance',EmployeeAttendanceSchema);
 

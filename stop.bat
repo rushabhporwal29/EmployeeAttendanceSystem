@@ -1,1 +1,1 @@
-forever stop app.js && exit
+pm2 stop app.js && exit

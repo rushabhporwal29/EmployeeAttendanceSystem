@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="form" id="form">
+        <label for="name">Name : </label>
+        <input type="text" class="name" id="name" name="name">
+        <label for="employeeID">Employee ID :</label>
+        <input type="number" class="employeeID" id="employeeID" name="employeeID">
+    </form>
+    <button>Submit</button>
+
+    <script>
+        const submit=document.querySelector('button');
+        submit.addEventListener('click',(e)=>{
+            const name= document.getElementById('name').value;
+            const employeeID= document.getElementById('employeeID').value;
+            let data={'name':name,'employeeID':employeeID};
+            let temp=JSON.stringify(data);
+            console.table(data);
+            console.log(typeof(temp));
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/attendance/mark', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(data));
+
+
+
+
+            // fetch('/attendance/mark',{
+            //         method:'POST',
+            //         body:JSON.stringify(data),
+            //         headers:{
+            //             'Content-Type': 'application/json;charset=utf-8'
+            //         }
+            // }).then(response=>response.json())
+            // .then()
+            // .catch((err)=>{
+            //     console.log(err);
+            // })
+        })
+        
+        
+    </script>
+
+</body>
+</html>

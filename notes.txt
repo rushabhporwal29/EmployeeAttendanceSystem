@@ -1,9 +1,0 @@
-- consume mongoDB from mobile app/client side
-- cache data in localstorage if offline/slow network
-
-
-sessionStorage/webStorage
-
-
-
-session management using localstorage/sessionstorage for app access

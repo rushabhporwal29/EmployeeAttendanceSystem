@@ -4,17 +4,25 @@ const employeeRoutes=require('./routes/employeeRoutes');
 const attendanceRoutes=require('./routes/attendanceRoutes');
 const morgan= require('morgan');
 const User=require('./models/User');
+const bodyParser = require('body-parser');
+
 
 // Express app
 const app=express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // MongoDB Connection
 const dbURL = 'mongodb://localhost:27017/employee'
 mongoose.connect(dbURL,{ useNewUrlParser: true , useUnifiedTopology: true })
     .then(() => {
         console.log('Database connection successful');
-        app.listen(3000);
-        console.log('Listening at port 3000');
+        app.listen(3001);
+        console.log('Listening at port 3001');
     })
     .catch(err => {
         console.error('Database connection error')
