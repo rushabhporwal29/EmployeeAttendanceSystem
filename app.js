@@ -5,6 +5,7 @@ const attendanceRoutes=require('./routes/attendanceRoutes');
 const morgan= require('morgan');
 const User=require('./models/User');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 
 // Express app
@@ -17,15 +18,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // MongoDB Connection
-const dbURL = 'mongodb://localhost:27017/employee'
+// const dbURL = 'mongodb://localhost:27017/employee'
+const dbURL= process.env.dbURL;
 mongoose.connect(dbURL,{ useNewUrlParser: true , useUnifiedTopology: true })
     .then(() => {
         console.log('Database connection successful');
-        app.listen(3001);
-        console.log('Listening at port 3001');
+        app.listen(process.env.PORT,process.env.HOST);
+        console.log('Listening at port 3011');
     })
     .catch(err => {
         console.error('Database connection error')
+        console.log(err);
         
     });
 
